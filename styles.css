@@ -1,0 +1,151 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #f9f9f9;
+}
+
+.logo img {
+  width: 120px; /* กำหนดความกว้างโลโก้ */
+  height: auto; /* ให้ความสูงปรับตามสัดส่วน */
+  max-width: 100%; /* ตอบสนองต่อขนาดหน้าจอ */
+}
+
+@media (max-width: 768px) {
+  .logo img {
+    width: 80px; /* ลดขนาดโลโก้ในหน้าจอเล็ก */
+  }
+}
+
+.top-nav a {
+  margin-left: 10px;
+  text-decoration: none;
+  color: #333;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  background-color: #007bff;
+  padding: 10px 0;
+  margin: 0;
+}
+
+nav ul li {
+  margin: 0 15px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+}
+
+.banner {
+  position: relative;
+  text-align: center;
+}
+
+.banner img {
+  width: 100%;
+  height: auto;
+}
+
+.banner-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+}
+
+.products {
+  padding: 20px;
+  text-align: center;
+}
+
+.product-grid {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap; /* เพิ่มเพื่อแสดงผลหลายแถว */
+}
+
+.product-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px;
+  text-align: center;
+  width: 200px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+  margin-bottom: 20px; /* เว้นระยะห่างระหว่างแถว */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.product-card img {
+  width: 100%;
+  height: auto;
+}
+
+.discount {
+  background-color: #007bff;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.product-title {
+  font-size: 14px;
+  margin: 10px 0;
+  color: #333;
+}
+
+.price {
+  font-size: 16px;
+  color: #28a745;
+  font-weight: bold;
+}
+
+.original-price {
+  text-decoration: line-through;
+  font-size: 14px;
+  color: #999;
+}
+
+.save {
+  font-size: 12px;
+  color: #ff6f61;
+}
+
+.view-all {
+  display: inline-block;
+  margin-top: 20px;
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.view-all:hover {
+  background-color: #0056b3;
+}
