@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            background-color: #f2f4f8; /* สีพื้นหลังตามภาพ */
+            color: #333;
+        }
+        .cart-container {
+            max-width: 1000px;
+            margin: 30px auto;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        .cart-header {
+            background-color: #4a90e2; /* สีฟ้าหัวตะกร้าสินค้า */
+            color: white;
+            padding: 15px 20px;
+            text-align: left;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .cart-item {
+            display: grid;
+            grid-template-columns: 120px auto 120px 140px 50px;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid #ddd;
+        }
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+        .cart-item img {
+            width: 100px;
+            height: auto;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+        .item-details h4 {
+            margin: 0 0 8px;
+            font-size: 18px;
+            color: #333;
+        }
+        .item-details p {
+            margin: 0;
+            color: #666;
+            font-size: 14px;
+        }
+        .item-quantity {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .item-quantity button {
+            width: 35px;
+            height: 35px;
+            border: none;
+            background-color: #4a90e2;
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        .item-quantity button:hover {
+            background-color: #357abd;
+        }
+        .item-quantity span {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .item-price {
+            font-size: 18px;
+            font-weight: bold;
+            text-align: right;
+            color: #4a90e2;
+        }
+        .remove-item {
+            background: none;
+            border: none;
+            color: #e74c3c;
+            font-size: 22px;
+            cursor: pointer;
+        }
+        .cart-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background: #f9f9f9;
+            border-top: 1px solid #ddd;
+        }
+        .total-price {
+            font-size: 22px;
+            font-weight: bold;
+            color: #333;
+        }
+        .checkout-btn {
+            padding: 12px 25px;
+            background-color: #4a90e2;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+        }
+        .checkout-btn:hover {
+            background-color: #357abd;
+        }
+        /* เพิ่ม CSS ให้เหมือนหน้าตามากขึ้น */
+        .cart-container {
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="cart-container">
+        <div class="cart-header">ตะกร้าสินค้า</div>
+        <div class="cart-item" data-price="83990">
+            <img src="https://via.placeholder.com/100" alt="Product">
+            <div class="item-details">
+                <h4>Monitor MSI PRO MP241</h4>
+                <p>หน้าจอ IPS 25 นิ้ว, Refresh Rate 120Hz</p>
+            </div>
+            <div class="item-quantity">
+                <button class="quantity-decrease">-</button>
+                <span class="quantity-value">1</span>
+                <button class="quantity-increase">+</button>
+            </div>
+            <div class="item-price">฿83,990</div>
+            <button class="remove-item">&times;</button>
+        </div>
+        <div class="cart-item" data-price="82390">
+            <img src="https://via.placeholder.com/100" alt="Product">
+            <div class="item-details">
+                <h4>Laptop Dell Inspiron 5465</h4>
+                <p>CPU: AMD Ryzen 5, 8GB RAM</p>
+            </div>
+            <div class="item-quantity">
+                <button class="quantity-decrease">-</button>
+                <span class="quantity-value">1</span>
+                <button class="quantity-increase">+</button>
+            </div>
+            <div class="item-price">฿82,390</div>
+            <button class="remove-item">&times;</button>
+        </div>
+        <div class="cart-footer">
+            <span class="total-price">ยอดรวม: ฿<span id="total-price">121,450</span></span>
+            <button class="checkout-btn">สั่งซื้อ</button>
+        </div>
+    </div>
+
+    <script>
+        const items = document.querySelectorAll('.cart-item');
+        const totalPriceElement = document.getElementById('total-price');
+
+        function updateTotalPrice() {
+            let total = 0;
+            items.forEach(item => {
+                if (item.style.display !== 'none') {
+                    const quantity = parseInt(item.querySelector('.quantity-value').textContent);
+                    const pricePerItem = parseInt(item.getAttribute('data-price'));
+                    total += pricePerItem * quantity;
+                }
+            });
+            totalPriceElement.textContent = total.toLocaleString('th-TH');
+        }
+
+        document.querySelectorAll('.remove-item').forEach((btn, index) => {
+            btn.addEventListener('click', () => {
+                items[index].style.display = 'none';
+                updateTotalPrice();
+            });
+        });
+
+        document.querySelectorAll('.quantity-increase').forEach((btn, index) => {
+            btn.addEventListener('click', () => {
+                const quantityElement = items[index].querySelector('.quantity-value');
+                quantityElement.textContent = parseInt(quantityElement.textContent) + 1;
+                updateTotalPrice();
+            });
+        });
+
+        document.querySelectorAll('.quantity-decrease').forEach((btn, index) => {
+            btn.addEventListener('click', () => {
+                const quantityElement = items[index].querySelector('.quantity-value');
+                const currentQuantity = parseInt(quantityElement.textContent);
+                if (currentQuantity > 1) {
+                    quantityElement.textContent = currentQuantity - 1;
+                    updateTotalPrice();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

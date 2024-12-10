@@ -1,0 +1,259 @@
+/* ส่วนตกแต่งตัวอักษรและระยะขอบของเว็บเพจ */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* ส่วน Header: การจัดวางโลโก้, เมนูค้นหา และเมนูผู้ใช้งาน */
+/* ส่วน Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #004080; /* สีพื้นหลังของ Header */
+    padding: 10px 20px;
+    color: white;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* การจัดวางโลโก้ */
+.logo img {
+    height: 50px;
+    max-width: 100%;
+}
+
+
+/* การจัดการแถบค้นหา */
+.search-bar input {
+    width: 300px;
+    padding: 8px;
+    border: none;
+    border-radius: 20px;
+    font-size: 14px;
+    outline: none;
+}
+
+/* จัดวางเมนูค้นหาและหมวดหมู่สินค้า */
+nav {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+}
+
+nav input {
+    width: 300px;
+    padding: 8px;
+    margin-bottom: 10px;
+}
+
+/* การแสดงหมวดหมู่สินค้า */
+.categories {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+.categories li a {
+    text-decoration: none;
+    color: #000;
+}
+
+.categories li a:hover {
+    color: #00eeff; /* สีเมื่อโฮเวอร์ */
+}
+
+/* การตกแต่งตัวเลือกผู้ใช้งาน */
+.user-options a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.user-options a:hover {
+    color: #00eeff; /* สีเมื่อโฮเวอร์ */
+}
+/* การแสดงรูปโปรโมชัน */
+.banner img {
+    width: 100%;
+    height: auto;
+}
+
+/* จัดตำแหน่งส่วนหัว Products */
+.products-header {
+    display: flex; /* ใช้ flexbox */
+    align-items: left; /* จัดตำแหน่งแนวตั้งตรงกลาง */
+    justify-content: space-between; /* ขยายพื้นที่ว่างระหว่างหัวข้อกับปุ่ม */
+    margin-bottom: 30px; /* ระยะห่างจากรายการสินค้า */
+}
+
+/* การตกแต่งข้อความหัวข้อ */
+.products-header h2 {
+    font-size: 20px; /* ขนาดข้อความ */
+    font-weight: bold; /* ตัวหนา */
+    color: #333; /* สีข้อความ */
+    margin: 0; /* เอาระยะขอบออก */
+}
+
+/* การตกแต่งส่วน Products */
+.products {
+    padding: 20px;
+}
+
+.product-item {
+    background-color: #f9f9f9; /* สีพื้นหลังสินค้า */
+    border: 1px solid #ddd; /* ขอบ */
+    padding: 15px; /* ระยะห่างภายในสินค้า */
+    text-align: center; /* จัดข้อความให้อยู่ตรงกลาง */
+    border-radius: 5px; /* มุมโค้งมน */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* เพิ่มเงาเบา ๆ */
+    transition: transform 0.2s ease; /* เพิ่มเอฟเฟกต์เมื่อโฮเวอร์ */
+}
+
+/* เอฟเฟกต์เมื่อโฮเวอร์สินค้า */
+.product-item:hover {
+    transform: scale(1.05); /* ขยายสินค้าเล็กน้อย */
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2); /* เงาเข้มขึ้น */
+}
+
+/* การแสดงรายการสินค้า */
+.product-list {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+.product {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+    width: 200px;
+}
+
+  .product {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* ใช้ grid เพื่อจัดแสดงสินค้า */
+    gap: 10px;
+    padding: 10px;
+  }
+  
+  .product {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+    width: 50%; /* ปรับขนาดให้เต็มพื้นที่ที่จัดให้ */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .product-title {
+    font-size: 14px;
+    margin: 10px 0;
+    color: #333;
+  }
+  
+  .product:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+
+.product img {
+    width: 100%;
+    height: auto;
+}
+
+/* การตกแต่งปุ่ม ดูทั้งหมด */
+.view-all-button a {
+    display: inline-block;
+    padding: 8px 16px; /* ขนาดปุ่ม */
+    font-size: 14px; /* ขนาดข้อความในปุ่ม */
+    font-weight: bold;
+    align-items: right;
+    color: white; /* สีข้อความ */
+    background-color: #ff6600; /* สีพื้นหลัง */
+    text-decoration: none; /* เอาขีดเส้นใต้ของลิงก์ออก */
+    border-radius: 5px; /* มุมโค้งมน */
+    transition: all 0.3s ease; /* เพิ่มเอฟเฟกต์เวลาโฮเวอร์ */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* เพิ่มเงา */
+}
+
+/* เอฟเฟกต์เวลาโฮเวอร์ */
+.view-all-button a:hover {
+    background-color: #e65c00; /* สีพื้นหลังเมื่อโฮเวอร์ */
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.3); /* เงาเข้มขึ้นเมื่อโฮเวอร์ */
+    transform: translateY(-2px); /* ปุ่มยกขึ้นเล็กน้อย */
+}
+
+.price {
+    font-weight: bold;
+    color: green;
+}
+
+.original-price {
+    text-decoration: line-through;
+    font-size: 14px;
+    color: #999;
+  }
+  
+  .save {
+    font-size: 12px;
+    color: #ff6f61;
+  }
+  
+  .view-all {
+    display: inline-block;
+    margin-top: 20px;
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+  }
+  
+  .view-all:hover {
+    background-color: #0056b3;
+  }
+
+.discount {
+    background-color: #007bff;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+
+/* การตกแต่ง Footer */
+footer {
+    background-color: #004080;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+footer a:hover {
+    color: #00eeff; /* สีเมื่อโฮเวอร์ */
+}
+
+footer .links ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+footer .links ul li a {
+    text-decoration: none;
+    color: white;
+}
